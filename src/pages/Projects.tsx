@@ -1,10 +1,12 @@
 
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
+import { ExternalLink, Github, Eye, Zap } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 
 const Projects = () => {
   const [activeTab, setActiveTab] = useState('all');
+  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
 
   const projects = [
     {
@@ -15,7 +17,9 @@ const Projects = () => {
       tech: ["Python", "PyTorch", "FastAPI", "React"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-purple-400 to-pink-400",
+      stats: "95% accuracy"
     },
     {
       id: 2,
@@ -25,7 +29,9 @@ const Projects = () => {
       tech: ["TensorFlow", "Docker", "AWS", "Node.js"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-blue-400 to-cyan-400",
+      stats: "1M+ requests/day"
     },
     {
       id: 3,
@@ -35,7 +41,9 @@ const Projects = () => {
       tech: ["React", "D3.js", "Python", "PostgreSQL"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-green-400 to-teal-400",
+      stats: "Real-time data"
     },
     {
       id: 4,
@@ -45,7 +53,9 @@ const Projects = () => {
       tech: ["Python", "TensorFlow", "Pandas", "Plotly"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-orange-400 to-red-400",
+      stats: "85% accuracy"
     },
     {
       id: 5,
@@ -55,7 +65,9 @@ const Projects = () => {
       tech: ["Python", "OpenAI Gym", "PyTorch", "Ray"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-indigo-400 to-purple-400",
+      stats: "Super-human performance"
     },
     {
       id: 6,
@@ -65,15 +77,17 @@ const Projects = () => {
       tech: ["React", "Node.js", "MongoDB", "Stripe"],
       image: "/placeholder.svg",
       github: "#",
-      demo: "#"
+      demo: "#",
+      gradient: "from-pink-400 to-rose-400",
+      stats: "10K+ users"
     }
   ];
 
   const tabs = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'ai-agents', label: 'AI Agents' },
-    { id: 'ml-models', label: 'ML Models' },
-    { id: 'full-stack', label: 'Full-Stack' }
+    { id: 'all', label: 'All Projects', count: projects.length },
+    { id: 'ai-agents', label: 'AI Agents', count: projects.filter(p => p.category === 'ai-agents').length },
+    { id: 'ml-models', label: 'ML Models', count: projects.filter(p => p.category === 'ml-models').length },
+    { id: 'full-stack', label: 'Full-Stack', count: projects.filter(p => p.category === 'full-stack').length }
   ];
 
   const filteredProjects = activeTab === 'all' 
@@ -86,91 +100,197 @@ const Projects = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-16"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            My Projects
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          <motion.h1 
+            className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
+            whileHover={{ scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              My Projects
+            </span>
+          </motion.h1>
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             A collection of my work spanning AI agents, machine learning models, and full-stack applications.
           </p>
         </motion.div>
 
-        {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
+        {/* Enhanced Tab Navigation */}
+        <motion.div 
+          className="flex flex-wrap justify-center gap-4 mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
           {tabs.map((tab) => (
             <motion.button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-6 py-3 rounded-lg font-medium transition-all ${
+              className={`group relative px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 ${
                 activeTab === tab.id
-                  ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white/10 dark:bg-black/10 text-gray-700 dark:text-gray-300 hover:bg-white/20 dark:hover:bg-black/20'
+                  ? 'text-white'
+                  : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
-              {tab.label}
+              {activeTab === tab.id && (
+                <motion.div
+                  layoutId="activeTab"
+                  className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl"
+                  transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                />
+              )}
+              
+              <span className="relative z-10 flex items-center gap-2">
+                {tab.label}
+                <motion.span 
+                  className={`px-2 py-1 rounded-full text-xs ${
+                    activeTab === tab.id 
+                      ? 'bg-white/20' 
+                      : 'bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400'
+                  }`}
+                  whileHover={{ scale: 1.1 }}
+                >
+                  {tab.count}
+                </motion.span>
+              </span>
             </motion.button>
           ))}
-        </div>
-
-        {/* Projects Grid */}
-        <motion.div
-          layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          {filteredProjects.map((project, index) => (
-            <motion.div
-              key={project.id}
-              layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -10 }}
-              className="bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-lg border border-white/20 dark:border-white/10 overflow-hidden shadow-lg hover:shadow-xl transition-all"
-            >
-              <div className="h-48 bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center">
-                <span className="text-white text-6xl">🚀</span>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-3">
-                  <a
-                    href={project.github}
-                    className="flex-1 px-4 py-2 bg-gray-800 text-white text-center rounded hover:bg-gray-700 transition-colors text-sm"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="flex-1 px-4 py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition-colors text-sm"
-                  >
-                    Demo
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </motion.div>
+
+        {/* Enhanced Projects Grid */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            layout
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                onMouseEnter={() => setHoveredProject(project.id)}
+                onMouseLeave={() => setHoveredProject(null)}
+                className="group relative bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 overflow-hidden"
+                whileHover={{ y: -10, scale: 1.02 }}
+              >
+                {/* Project Image/Icon */}
+                <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                  <motion.div
+                    className="text-white text-6xl"
+                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    🚀
+                  </motion.div>
+                  
+                  {/* Hover overlay */}
+                  <motion.div
+                    className="absolute inset-0 bg-black/20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                  >
+                    <motion.a
+                      href={project.github}
+                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <Github className="w-5 h-5" />
+                    </motion.a>
+                    <motion.a
+                      href={project.demo}
+                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                      whileHover={{ scale: 1.1 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <ExternalLink className="w-5 h-5" />
+                    </motion.a>
+                  </motion.div>
+
+                  {/* Stats badge */}
+                  <motion.div
+                    className="absolute top-4 right-4 px-3 py-1 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs font-semibold"
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.3 }}
+                  >
+                    {project.stats}
+                  </motion.div>
+                </div>
+                
+                <div className="p-6">
+                  <motion.h3 
+                    className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
+                    whileHover={{ x: 5 }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm leading-relaxed group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors duration-300">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tech.map((tech, techIndex) => (
+                      <motion.span
+                        key={tech}
+                        className="px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-200 text-xs rounded-full font-medium"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: techIndex * 0.1 }}
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        {tech}
+                      </motion.span>
+                    ))}
+                  </div>
+                  
+                  <div className="flex gap-3">
+                    <motion.a
+                      href={project.github}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white text-center rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Github className="w-4 h-4" />
+                      Code
+                    </motion.a>
+                    <motion.a
+                      href={project.demo}
+                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all text-sm font-medium"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Eye className="w-4 h-4" />
+                      Demo
+                    </motion.a>
+                  </div>
+                </div>
+
+                {/* Glow effect on hover */}
+                {hoveredProject === project.id && (
+                  <motion.div
+                    className={`absolute -inset-1 bg-gradient-to-r ${project.gradient} rounded-2xl blur opacity-20`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 0.2 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
     </PageTransition>
   );
