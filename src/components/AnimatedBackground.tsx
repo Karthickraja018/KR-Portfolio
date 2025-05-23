@@ -54,6 +54,15 @@ const AnimatedBackground = () => {
       return colors[Math.floor(Math.random() * colors.length)];
     };
 
+    // Helper function to extract RGB values from rgba string
+    const getRGBFromRGBA = (rgbaString: string) => {
+      const match = rgbaString.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)/);
+      if (match) {
+        return `rgb(${match[1]}, ${match[2]}, ${match[3]})`;
+      }
+      return rgbaString;
+    };
+
     // Create particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
@@ -135,13 +144,18 @@ const AnimatedBackground = () => {
         particle.vx *= 0.99;
         particle.vy *= 0.99;
 
-        // Glow effect
+        // Get RGB base color for gradient
+        const rgbBase = getRGBFromRGBA(particle.color);
+        
+        // Glow effect with proper color formatting
         const glow = ctx.createRadialGradient(
           particle.x, particle.y, 0,
           particle.x, particle.y, particle.size * 3
         );
-        glow.addColorStop(0, particle.color.replace(')', ', ' + particle.opacity + ')').replace('rgba', 'rgba'));
-        glow.addColorStop(1, particle.color.replace(')', ', 0)').replace('rgba', 'rgba'));
+        
+        // Use properly formatted RGBA colors
+        glow.addColorStop(0, `${rgbBase.replace('rgb', 'rgba').replace(')', `, ${particle.opacity})`)}`);
+        glow.addColorStop(1, `${rgbBase.replace('rgb', 'rgba').replace(')', ', 0)')}`);
 
         // Draw the particle with glow
         ctx.beginPath();
