@@ -1,7 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Code, Brain, Globe, Server, Award, Trophy, Star } from 'lucide-react';
+import { Code, Brain, Globe, Server, Award, Trophy, Star, Database, BookOpen, Layers } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 
 const Skills = () => {
@@ -9,73 +9,101 @@ const Skills = () => {
 
   const skillCategories = [
     {
-      title: "Machine Learning",
-      icon: Brain,
+      title: "Programming",
+      icon: Code,
       color: "from-purple-400 to-pink-400",
       skills: [
         { name: "Python", level: 95, icon: "🐍" },
-        { name: "TensorFlow", level: 90, icon: "🧠" },
-        { name: "PyTorch", level: 88, icon: "🔥" },
-        { name: "Scikit-learn", level: 92, icon: "📊" },
-        { name: "Pandas/NumPy", level: 95, icon: "🐼" }
+        { name: "C", level: 80, icon: "©️" },
+        { name: "Java", level: 75, icon: "☕" },
+        { name: "HTML/CSS", level: 80, icon: "🌐" },
+        { name: "JavaScript", level: 70, icon: "📜" }
       ]
     },
     {
-      title: "AI & Deep Learning",
-      icon: Star,
+      title: "Machine Learning",
+      icon: Brain,
       color: "from-blue-400 to-cyan-400",
       skills: [
-        { name: "Computer Vision", level: 85, icon: "👁️" },
-        { name: "NLP", level: 88, icon: "💬" },
-        { name: "Reinforcement Learning", level: 80, icon: "🎮" },
-        { name: "GANs", level: 75, icon: "🎨" },
-        { name: "Transformers", level: 90, icon: "🤖" }
+        { name: "TensorFlow", level: 85, icon: "🧠" },
+        { name: "Computer Vision", level: 90, icon: "👁️" },
+        { name: "NLP", level: 80, icon: "💬" },
+        { name: "Data Analysis", level: 90, icon: "📊" },
+        { name: "Jupyter", level: 92, icon: "📔" }
       ]
     },
     {
-      title: "Frontend Development",
-      icon: Code,
+      title: "Frameworks & Libraries",
+      icon: Layers,
       color: "from-green-400 to-teal-400",
       skills: [
-        { name: "React", level: 92, icon: "⚛️" },
-        { name: "TypeScript", level: 88, icon: "📘" },
-        { name: "Tailwind CSS", level: 85, icon: "🎨" },
-        { name: "Three.js", level: 70, icon: "🎯" },
-        { name: "D3.js", level: 75, icon: "📈" }
+        { name: "Pandas", level: 92, icon: "🐼" },
+        { name: "NumPy", level: 90, icon: "🔢" },
+        { name: "Matplotlib", level: 88, icon: "📈" },
+        { name: "FastAPI", level: 80, icon: "⚡" },
+        { name: "Flask", level: 78, icon: "🌶️" }
       ]
     },
     {
-      title: "Backend & DevOps",
+      title: "Tools & Platforms",
       icon: Server,
       color: "from-orange-400 to-red-400",
       skills: [
-        { name: "Node.js", level: 85, icon: "🟢" },
-        { name: "FastAPI", level: 90, icon: "⚡" },
-        { name: "Docker", level: 80, icon: "🐳" },
-        { name: "AWS", level: 75, icon: "☁️" },
-        { name: "PostgreSQL", level: 82, icon: "🐘" }
+        { name: "OpenCV", level: 85, icon: "🎥" },
+        { name: "VS Code", level: 90, icon: "💻" },
+        { name: "Git", level: 85, icon: "🔄" },
+        { name: "Postman", level: 78, icon: "📮" },
+        { name: "Excel", level: 82, icon: "📊" }
+      ]
+    },
+    {
+      title: "Databases",
+      icon: Database,
+      color: "from-yellow-400 to-amber-500",
+      skills: [
+        { name: "MySQL", level: 85, icon: "🗄️" },
+        { name: "PostgreSQL", level: 80, icon: "🐘" },
+        { name: "SQL Queries", level: 88, icon: "🔍" },
+        { name: "Database Design", level: 75, icon: "📐" }
+      ]
+    },
+    {
+      title: "Soft Skills",
+      icon: BookOpen,
+      color: "from-indigo-400 to-purple-500",
+      skills: [
+        { name: "Adaptability", level: 95, icon: "🌊" },
+        { name: "Time Management", level: 88, icon: "⏰" },
+        { name: "Team Collaboration", level: 92, icon: "👥" },
+        { name: "Problem Solving", level: 90, icon: "🧩" }
       ]
     }
   ];
 
   const certifications = [
     {
-      title: "AWS ML Specialty",
-      description: "Machine Learning Specialist Certification",
+      title: "DBMS Course",
+      description: "Infosys Springboard (May 2024)",
       icon: "🏆",
       color: "from-yellow-400 to-orange-500"
     },
     {
-      title: "Google AI/ML",
-      description: "Professional ML Engineer Certificate",
+      title: "Computer Vision",
+      description: "NPTEL (July-October 2024)",
       icon: "🎓",
       color: "from-green-400 to-blue-500"
     },
     {
-      title: "Kaggle Expert",
-      description: "Top 5% in ML competitions",
+      title: "Machine Learning",
+      description: "Infosys Springboard (July 2024)",
       icon: "🏅",
       color: "from-purple-400 to-pink-500"
+    },
+    {
+      title: "Generative AI",
+      description: "Skillthub (July-August 2024)",
+      icon: "🤖",
+      color: "from-red-400 to-pink-500"
     }
   ];
 
@@ -100,7 +128,7 @@ const Skills = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {skillCategories.map((category, categoryIndex) => {
             const Icon = category.icon;
             return (
@@ -203,10 +231,10 @@ const Skills = () => {
             className="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center"
             whileHover={{ scale: 1.02 }}
           >
-            Certifications & Awards
+            Certifications & Achievements
           </motion.h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {certifications.map((cert, index) => (
               <motion.div
                 key={cert.title}
@@ -237,6 +265,50 @@ const Skills = () => {
               </motion.div>
             ))}
           </div>
+
+          {/* Achievements */}
+          <motion.div 
+            className="mt-8 p-6 rounded-xl bg-white/5 dark:bg-black/5 backdrop-blur-sm border border-white/10 dark:border-white/5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+          >
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-4 text-xl text-center">Academic Achievements</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <motion.div 
+                className="flex items-center gap-4 p-4 rounded-lg bg-white/10 dark:bg-black/10"
+                whileHover={{ scale: 1.03, x: 5 }}
+              >
+                <motion.span 
+                  className="text-4xl"
+                  animate={{ rotate: [0, 10, 0] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
+                >
+                  🏅
+                </motion.span>
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Department First</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">3rd semester of B.Tech</p>
+                </div>
+              </motion.div>
+              <motion.div 
+                className="flex items-center gap-4 p-4 rounded-lg bg-white/10 dark:bg-black/10"
+                whileHover={{ scale: 1.03, x: 5 }}
+              >
+                <motion.span 
+                  className="text-4xl"
+                  animate={{ rotate: [0, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 2, delay: 1 }}
+                >
+                  🎓
+                </motion.span>
+                <div>
+                  <h5 className="font-medium text-gray-900 dark:text-white">Top 5 Rank</h5>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">HSC Examination at school</p>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
     </PageTransition>

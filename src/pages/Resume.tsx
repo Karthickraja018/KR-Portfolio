@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import PageTransition from '../components/PageTransition';
+import { FileDown } from 'lucide-react';
 
 const Resume = () => {
   return (
@@ -12,7 +13,9 @@ const Resume = () => {
           className="text-center mb-12"
         >
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
-            Resume
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Resume
+            </span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
             Download my latest resume or view it online
@@ -30,9 +33,9 @@ const Resume = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow text-lg"
+              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition-shadow text-lg flex items-center gap-2 mx-auto"
             >
-              📄 Download Resume (PDF)
+              <FileDown className="w-5 h-5" /> Download Resume (PDF)
             </motion.button>
           </motion.div>
 
@@ -47,16 +50,16 @@ const Resume = () => {
               {/* Header */}
               <div className="text-center border-b border-gray-300 dark:border-gray-600 pb-6">
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                  Alex Johnson
+                  KARTHICK RAJA E
                 </h2>
                 <p className="text-xl text-gray-700 dark:text-gray-300 mb-4">
                   Machine Learning Engineer
                 </p>
                 <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                  <span>📧 alex.johnson@email.com</span>
-                  <span>📱 (555) 123-4567</span>
-                  <span>📍 San Francisco, CA</span>
-                  <span>🔗 linkedin.com/in/alexjohnson</span>
+                  <span>📧 e.karthickraja2004@gmail.com</span>
+                  <span>📱 +91 8098620388</span>
+                  <span>📍 Coimbatore</span>
+                  <span>🔗 <a href="https://github.com/karthickraja918" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors">github.com/karthickraja918</a></span>
                 </div>
               </div>
 
@@ -66,10 +69,9 @@ const Resume = () => {
                   Professional Summary
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Experienced Machine Learning Engineer with 5+ years developing and deploying 
-                  AI systems at scale. Proven track record of building intelligent agents, 
-                  deep learning models, and full-stack applications that deliver measurable 
-                  business impact. Strong background in computer vision, NLP, and reinforcement learning.
+                  Motivated Machine Learning student with a strong foundation in Python, SQL, 
+                  machine learning concepts, web development and data visualization. Passionate 
+                  about leveraging data-driven insights to solve real-world problems and drive innovation.
                 </p>
               </div>
 
@@ -83,41 +85,19 @@ const Resume = () => {
                     <div className="flex justify-between items-start mb-2">
                       <div>
                         <h4 className="font-semibold text-gray-900 dark:text-white">
-                          Senior ML Engineer
+                          Machine Learning Intern
                         </h4>
                         <p className="text-gray-600 dark:text-gray-400">
-                          TechCorp Inc. | San Francisco, CA
+                          Cognizz Technology
                         </p>
                       </div>
                       <span className="text-gray-500 dark:text-gray-500 text-sm">
-                        2021 - Present
+                        March 2024 - April 2024
                       </span>
                     </div>
                     <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                      <li>Led development of recommendation system serving 10M+ users</li>
-                      <li>Improved model accuracy by 25% using advanced deep learning techniques</li>
-                      <li>Built MLOps pipeline reducing deployment time by 60%</li>
-                    </ul>
-                  </div>
-
-                  <div>
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h4 className="font-semibold text-gray-900 dark:text-white">
-                          ML Engineer
-                        </h4>
-                        <p className="text-gray-600 dark:text-gray-400">
-                          AI Startup | Palo Alto, CA
-                        </p>
-                      </div>
-                      <span className="text-gray-500 dark:text-gray-500 text-sm">
-                        2019 - 2021
-                      </span>
-                    </div>
-                    <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                      <li>Developed computer vision models for autonomous vehicle perception</li>
-                      <li>Published 3 papers in top-tier ML conferences</li>
-                      <li>Built data pipeline processing 1TB+ of sensor data daily</li>
+                      <li>Assisted in building and optimizing machine learning models for real-world applications</li>
+                      <li>Pre-processed large datasets, enhancing data quality and feature selection</li>
                     </ul>
                   </div>
                 </div>
@@ -128,19 +108,68 @@ const Resume = () => {
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Education
                 </h3>
-                <div>
+                <div className="space-y-3">
                   <div className="flex justify-between items-start">
                     <div>
                       <h4 className="font-semibold text-gray-900 dark:text-white">
-                        M.S. Computer Science
+                        Bachelor of Technology in Artificial Intelligence & Machine Learning
                       </h4>
                       <p className="text-gray-600 dark:text-gray-400">
-                        Stanford University | GPA: 3.9/4.0
+                        SNS College of Technology | CGPA: 8.8 (5th semester)
                       </p>
                     </div>
                     <span className="text-gray-500 dark:text-gray-500 text-sm">
-                      2017 - 2019
+                      2022 - 2026
                     </span>
+                  </div>
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h4 className="font-semibold text-gray-900 dark:text-white">
+                        Higher Secondary School
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-400">
+                        DSM Higher Secondary School | Percentage: 89%
+                      </p>
+                    </div>
+                    <span className="text-gray-500 dark:text-gray-500 text-sm">
+                      2019 - 2022
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Projects */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Notable Projects
+                </h3>
+                <div className="space-y-3">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Data Visualization AI (Python, Streamlit)
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Developed an AI-powered tool for generating interactive and insightful data visualizations.
+                      Integrated Pandas, Matplotlib, and Streamlit to enhance user experience and real-time analysis.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Real Time Animal Detection and Alert System for Farmlands
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      The system detects animals in farmland using YOLOv8 and logs the detections with a user-friendly GUI.
+                      On detecting repeated intrusion, it triggers a siren and sends SMS alerts to the farm owner for timely action.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Virtual Mouse using Gestures (Python, OpenCV, Mediapipe)
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Designed a gesture-based virtual mouse using OpenCV.
+                      Implemented hand tracking algorithms to enable touch-free computer interaction.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -153,21 +182,77 @@ const Resume = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <h4 className="font-medium text-gray-900 dark:text-white mb-2">
-                      Machine Learning
+                      Programming Languages
                     </h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Python, TensorFlow, PyTorch, Scikit-learn, Pandas
+                      Python, C, Java
                     </p>
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 dark:text-white mb-2">
-                      Development
+                      Web Development
                     </h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      React, Node.js, Docker, AWS, FastAPI
+                      HTML, CSS, JavaScript (basics)
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2">
+                      Databases
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      MySQL, PostgreSQL
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2">
+                      Frameworks & Libraries
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Pandas, Numpy, Matplotlib, TensorFlow, FastAPI, Flask, OpenCV
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2">
+                      Tools & Platforms
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      MS Excel, VS Code, Git, Postman, i8n
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-medium text-gray-900 dark:text-white mb-2">
+                      Soft Skills
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Adaptability, Time Management, Team Collaboration
                     </p>
                   </div>
                 </div>
+              </div>
+
+              {/* Certifications */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Certifications
+                </h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                  <li><span className="font-medium">DBMS Course</span> - Infosys Springboard (May 2024)</li>
+                  <li><span className="font-medium">NPTEL Computer Vision Course</span> - NPTEL (July-October 2024)</li>
+                  <li><span className="font-medium">Machine Learning Course</span> - Infosys Springboard (July 2024)</li>
+                  <li><span className="font-medium">Generative AI Introduction</span> - Skillthub (July-August 2024)</li>
+                </ul>
+              </div>
+
+              {/* Achievements */}
+              <div>
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  Achievements
+                </h3>
+                <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
+                  <li>Secured Department First in the 3rd semester of B.Tech</li>
+                  <li>Ranked among the Top 5 in Higher Secondary Certificate (HSC) Examination at school</li>
+                </ul>
               </div>
             </div>
           </motion.div>
