@@ -84,7 +84,7 @@ const Index = () => {
                   transition: { duration: 0.5 }
                 }}
               >
-                Alex Johnson
+                Karthick Raja
               </motion.span>
             </motion.h1>
             

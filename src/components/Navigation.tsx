@@ -26,8 +26,8 @@ const Navigation = () => {
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold text-gray-900 dark:text-white">
-            ML Engineer
+          <Link to="/" className="text-xl font-bold text-blue-600 dark:text-blue-400">
+            Karthick Raja
           </Link>
 
           {/* Desktop Navigation */}
