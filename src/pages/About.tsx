@@ -44,7 +44,7 @@ const About = () => {
     { name: "Python", level: 98, color: "bg-green-500" },
     { name: "TensorFlow", level: 85, color: "bg-orange-500" },
     { name: "Computer Vision", level: 88, color: "bg-pink-500" },
-    { name: "NLP", level: 82, color: "bg-indigo-500" }
+   
   ];
 
   return (
