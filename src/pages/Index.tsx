@@ -236,7 +236,12 @@ const Index = () => {
                 className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed"
                 variants={itemVariants}
               >
-                Machine Learning Engineer with 8+ years of experience building intelligent systems that solve real-world problems. I specialize in AI agents, deep learning models, and full-stack applications.
+              Just your friendly neighborhood ML student 🕷️ trying to teach computers how to think! 
+              Currently juggling neural networks like a circus performer 🎪 while attempting to explain 
+              to my laptop why it needs to train faster. My greatest achievements include successfully 
+              installing TensorFlow without crying and making a model that can tell cats from dogs... 
+              most of the time! 😅 Let's connect and geek out about AI - I promise to keep the math 
+              jokes to a minimum! 🤓✨
               </motion.p>
 
               {/* Quick Stats */}
