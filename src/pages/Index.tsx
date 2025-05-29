@@ -270,13 +270,13 @@ const Index = () => {
                 className="flex flex-col sm:flex-row gap-4"
                 variants={itemVariants}
               >
-                <Link to="/about">
+                <Link to="/projects">
                   <motion.button
                     className="group flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300"
                     whileHover={{ scale: 1.05, x: 5 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    Learn More About Me
+                    View My Work
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </motion.button>
                 </Link>
@@ -297,7 +297,7 @@ const Index = () => {
             {/* Image Section */}
             <motion.div 
               variants={itemVariants}
-              className="relative flex justify-center lg:justify-end"
+              className="relative flex justify-center lg:justify-end perspective-1000"
             >
               {/* Background Shape */}
               <motion.div 
@@ -306,26 +306,49 @@ const Index = () => {
                 transition={{ duration: 4, repeat: Infinity }}
               />
               
-              {/* Profile Image */}
+              {/* Profile Image with 3D Effect */}
               <motion.div 
-                className="relative z-10 w-80 h-96 rounded-3xl overflow-hidden shadow-2xl"
-                whileHover={{ scale: 1.02, rotate: 1 }}
-                transition={{ type: "spring", stiffness: 300 }}
+                className="relative z-10 w-80 h-96 rounded-3xl overflow-hidden shadow-2xl transform-gpu preserve-3d"
+                whileHover={{ 
+                  rotateY: 5,
+                  rotateX: -5,
+                  scale: 1.05,
+                  transition: {
+                    duration: 0.4,
+                    ease: "easeOut"
+                  }
+                }}
+                style={{
+                  transformStyle: "preserve-3d",
+                }}
               >
+                {/* Shine Effect Overlay */}
+                <motion.div
+                  className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0"
+                  whileHover={{ opacity: 0.5 }}
+                  transition={{ duration: 0.3 }}
+                />
+
                 <img
                   src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=600&fit=crop&crop=face"
                   alt="Karthick Raja"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform-gpu"
                 />
                 
                 {/* Floating Badge */}
                 <motion.div 
-                  className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border-4 border-blue-100 dark:border-blue-900"
+                  className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border-4 border-blue-100 dark:border-blue-900 transform-gpu"
                   animate={{ y: [-5, 5, -5] }}
                   transition={{ duration: 3, repeat: Infinity }}
+                  style={{
+                    transform: "translateZ(20px)",
+                  }}
                 >
                   <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                 </motion.div>
+
+                {/* Add depth shadow */}
+                <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] rounded-3xl pointer-events-none" />
               </motion.div>
             </motion.div>
           </motion.div>
