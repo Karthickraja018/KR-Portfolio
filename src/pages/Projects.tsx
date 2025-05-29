@@ -1,57 +1,64 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ExternalLink, Github, Eye, Zap } from 'lucide-react';
+import { ExternalLink, Github, Eye } from 'lucide-react';
 import PageTransition from '../components/PageTransition';
 
+/**
+ * Projects component displays a portfolio of projects with tab-based filtering
+ * and animated project cards, categorized into Models, Automation, and Full-Stack.
+ */
 const Projects = () => {
+  // State for the currently selected tab (e.g., 'all', 'models', 'automation', 'full-stack')
   const [activeTab, setActiveTab] = useState('all');
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  // State for tracking the currently hovered project card for hover effects
+  const [hoveredProject, setHoveredProject] = useState(null);
 
+  // Array of project objects with details for display, categorized by technical focus
   const projects = [
     {
       id: 1,
-      title: "AI Chat Assistant",
-      description: "Intelligent chatbot using transformer architecture with context-aware responses and multi-modal capabilities.",
-      category: "ai-agents",
-      tech: ["Python", "PyTorch", "FastAPI", "React"],
-      image: "/placeholder.svg",
-      github: "#",
-      demo: "#",
-      gradient: "from-purple-400 to-pink-400",
+      title: "Animal Detection",
+      description: "Real-time animal detection system using YOLOv8, with bounding box visualization and CSV logging for monitoring.",
+      category: "models",
+      tech: ["Python", "OpenCV", "YOLOv8"],
+      image: "/placeholder.svg", // Replace with actual image of animal detection
+      github: "#", // Replace with actual GitHub URL
+      demo: "#", // Replace with actual demo URL
+      gradient: "from-green-400 to-teal-400",
       stats: "95% accuracy"
     },
     {
       id: 2,
-      title: "Image Classification API",
-      description: "REST API for real-time image classification using convolutional neural networks with 95% accuracy.",
-      category: "ml-models",
-      tech: ["TensorFlow", "Docker", "AWS", "Node.js"],
-      image: "/placeholder.svg",
+      title: "Virtual Mouse",
+      description: "Gesture-controlled virtual mouse using hand tracking with MediaPipe for seamless cursor navigation.",
+      category: "models",
+      tech: ["Python", "MediaPipe", "OpenCV"],
+      image: "/placeholder.svg", // Replace with actual image of virtual mouse
       github: "#",
       demo: "#",
       gradient: "from-blue-400 to-cyan-400",
-      stats: "1M+ requests/day"
+      stats: "Real-time tracking"
     },
     {
       id: 3,
-      title: "Portfolio Dashboard",
-      description: "Interactive dashboard for tracking ML model performance with real-time analytics and visualizations.",
+      title: "Data Analytics Chatbot",
+      description: "Interactive chatbot for data analysis and visualization using Streamlit, with support for CSV processing and NLP.",
       category: "full-stack",
-      tech: ["React", "D3.js", "Python", "PostgreSQL"],
-      image: "/placeholder.svg",
+      tech: ["Python", "Streamlit", "Pandas", "Plotly"],
+      image: "/placeholder.svg", // Replace with actual image of chatbot UI
       github: "#",
       demo: "#",
-      gradient: "from-green-400 to-teal-400",
-      stats: "Real-time data"
+      gradient: "from-purple-400 to-pink-400",
+      stats: "100+ queries"
     },
     {
       id: 4,
-      title: "Stock Prediction Model",
-      description: "Time-series prediction model using LSTM networks for financial market analysis and forecasting.",
-      category: "ml-models",
-      tech: ["Python", "TensorFlow", "Pandas", "Plotly"],
-      image: "/placeholder.svg",
+      title: "Semester Result Prediction",
+      description: "Machine learning model to predict semester grades based on student performance data, using regression techniques.",
+      category: "models",
+      tech: ["Python", "Scikit-learn", "Pandas"],
+      image: "/placeholder.svg", // Replace with actual image of prediction dashboard
       github: "#",
       demo: "#",
       gradient: "from-orange-400 to-red-400",
@@ -59,37 +66,63 @@ const Projects = () => {
     },
     {
       id: 5,
-      title: "Autonomous Game Agent",
-      description: "Reinforcement learning agent that masters complex video games using deep Q-learning.",
-      category: "ai-agents",
-      tech: ["Python", "OpenAI Gym", "PyTorch", "Ray"],
-      image: "/placeholder.svg",
+      title: "Mental Health Assistant",
+      description: "Fine-tuned GPT-Neo model for conversational mental health support, providing empathetic responses.",
+      category: "models",
+      tech: ["Python", "Transformers", "PyTorch"],
+      image: "/placeholder.svg", // Replace with actual image of assistant interface
       github: "#",
       demo: "#",
       gradient: "from-indigo-400 to-purple-400",
-      stats: "Super-human performance"
+      stats: "Context-aware"
     },
     {
       id: 6,
-      title: "E-commerce Platform",
-      description: "Full-stack e-commerce solution with ML-powered recommendation system and real-time inventory.",
+      title: "Skin Disease Prediction",
+      description: "ML-powered web app for predicting skin diseases from images, with a React frontend for user interaction.",
       category: "full-stack",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      image: "/placeholder.svg",
+      tech: ["Python", "TensorFlow", "React"],
+      image: "/placeholder.svg", // Replace with actual image of skin disease app
       github: "#",
       demo: "#",
       gradient: "from-pink-400 to-rose-400",
-      stats: "10K+ users"
+      stats: "90% accuracy"
+    },
+    {
+      id: 7,
+      title: "Project Task Scheduler",
+      description: "Automated project management system using n8n that sends daily status reports to managers and task reminders to team members. Includes Google Forms integration for status updates, deadline notifications, and overdue alerts.",
+      category: "automation", 
+      tech: ["n8n", "Google Forms", "Gmail API", "Cron"],
+      image: "/placeholder.svg", // Replace with actual image of automation workflow
+      github: "#",
+      demo: "#",
+      gradient: "from-blue-600 to-teal-600",
+      stats: "98% task tracking"
+    },
+    {
+      id: 8,
+      title: "LeetBuddy",
+      description: "Automated email system using n8n that sends daily LeetCode problems and solutions for consistent practice and learning.",
+      category: "automation", 
+      tech: ["n8n", "Email", "LeetCode API"],
+      image: "/placeholder.svg", // Replace with actual image of email automation workflow
+      github: "#",
+      demo: "#",
+      gradient: "from-yellow-400 to-orange-400",
+      stats: "Daily emails"
     }
   ];
 
+  // Tabs for filtering projects by category
   const tabs = [
     { id: 'all', label: 'All Projects', count: projects.length },
-    { id: 'ai-agents', label: 'AI Agents', count: projects.filter(p => p.category === 'ai-agents').length },
-    { id: 'ml-models', label: 'ML Models', count: projects.filter(p => p.category === 'ml-models').length },
+    { id: 'models', label: 'Models', count: projects.filter(p => p.category === 'models').length },
+    { id: 'automation', label: 'Automation', count: projects.filter(p => p.category === 'automation').length },
     { id: 'full-stack', label: 'Full-Stack', count: projects.filter(p => p.category === 'full-stack').length }
   ];
 
+  // Filter projects based on the active tab
   const filteredProjects = activeTab === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeTab);
@@ -97,6 +130,7 @@ const Projects = () => {
   return (
     <PageTransition>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-12">
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -112,11 +146,11 @@ const Projects = () => {
             </span>
           </motion.h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A collection of my work spanning AI agents, machine learning models, and full-stack applications.
+            A collection of my work spanning machine learning models, automation solutions, and full-stack applications.
           </p>
         </motion.div>
 
-        {/* Enhanced Tab Navigation */}
+        {/* Tab Navigation */}
         <motion.div 
           className="flex flex-wrap justify-center gap-4 mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -134,7 +168,9 @@ const Projects = () => {
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
+              aria-label={`Select ${tab.label} tab`}
             >
+              {/* Animated background for active tab */}
               {activeTab === tab.id && (
                 <motion.div
                   layoutId="activeTab"
@@ -142,7 +178,6 @@ const Projects = () => {
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
-              
               <span className="relative z-10 flex items-center gap-2">
                 {tab.label}
                 <motion.span 
@@ -160,7 +195,7 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Enhanced Projects Grid */}
+        {/* Projects Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
@@ -183,7 +218,7 @@ const Projects = () => {
                 className="group relative bg-white/10 dark:bg-black/10 backdrop-blur-sm rounded-2xl border border-white/20 dark:border-white/10 overflow-hidden"
                 whileHover={{ y: -10, scale: 1.02 }}
               >
-                {/* Project Image/Icon */}
+                {/* Project Image/Icon Section */}
                 <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
                   <motion.div
                     className="text-white text-6xl"
@@ -193,28 +228,34 @@ const Projects = () => {
                     🚀
                   </motion.div>
                   
-                  {/* Hover overlay */}
+                  {/* Hover overlay with GitHub and Demo links */}
                   <motion.div
                     className="absolute inset-0 bg-black/20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   >
-                    <motion.a
-                      href={project.github}
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <Github className="w-5 h-5" />
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.9 }}
-                    >
-                      <ExternalLink className="w-5 h-5" />
-                    </motion.a>
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label={`View ${project.title} source code on GitHub`}
+                      >
+                        <Github className="w-5 h-5" />
+                      </motion.a>
+                    )}
+                    {project.demo && (
+                      <motion.a
+                        href={project.demo}
+                        className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.9 }}
+                        aria-label={`View ${project.title} demo`}
+                      >
+                        <ExternalLink className="w-5 h-5" />
+                      </motion.a>
+                    )}
                   </motion.div>
 
                   {/* Stats badge */}
@@ -228,6 +269,7 @@ const Projects = () => {
                   </motion.div>
                 </div>
                 
+                {/* Project Details */}
                 <div className="p-6">
                   <motion.h3 
                     className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
@@ -240,6 +282,7 @@ const Projects = () => {
                     {project.description}
                   </p>
                   
+                  {/* Tech Stack Tags */}
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.tech.map((tech, techIndex) => (
                       <motion.span
@@ -255,25 +298,32 @@ const Projects = () => {
                     ))}
                   </div>
                   
+                  {/* Action Buttons */}
                   <div className="flex gap-3">
-                    <motion.a
-                      href={project.github}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white text-center rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Github className="w-4 h-4" />
-                      Code
-                    </motion.a>
-                    <motion.a
-                      href={project.demo}
-                      className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all text-sm font-medium"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Eye className="w-4 h-4" />
-                      Demo
-                    </motion.a>
+                    {project.github && (
+                      <motion.a
+                        href={project.github}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white text-center rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        aria-label={`View ${project.title} source code`}
+                      >
+                        <Github className="w-4 h-4" />
+                        Code
+                      </motion.a>
+                    )}
+                    {project.demo && (
+                      <motion.a
+                        href={project.demo}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all text-sm font-medium"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        aria-label={`View ${project.title} demo`}
+                      >
+                        <Eye className="w-4 h-4" />
+                        Demo
+                      </motion.a>
+                    )}
                   </div>
                 </div>
 

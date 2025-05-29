@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { Code, Brain, Globe, Server, Award, Trophy, Star, Database, BookOpen, Layers } from 'lucide-react';
@@ -13,35 +12,36 @@ const Skills = () => {
       icon: Code,
       color: "from-purple-400 to-pink-400",
       skills: [
-        { name: "Python", level: 95, icon: "🐍" },
-        { name: "C", level: 80, icon: "©️" },
-        { name: "Java", level: 75, icon: "☕" },
-        { name: "HTML/CSS", level: 80, icon: "🌐" },
-        { name: "JavaScript", level: 70, icon: "📜" }
+        { name: "Python", level: 75, icon: "🐍", featured: true },
+        { name: "Java", level: 55, icon: "☕" },
+        { name: "HTML/CSS", level: 70, icon: "🌐" },
+        { name: "JavaScript", level: 65, icon: "📜", featured: true }
       ]
     },
     {
       title: "Machine Learning",
       icon: Brain,
-      color: "from-blue-400 to-cyan-400",
+      color: "from-blue-400 to-cyan-400", 
       skills: [
-        { name: "TensorFlow", level: 85, icon: "🧠" },
-        { name: "Computer Vision", level: 90, icon: "👁️" },
-        { name: "NLP", level: 80, icon: "💬" },
-        { name: "Data Analysis", level: 90, icon: "📊" },
-        { name: "Jupyter", level: 92, icon: "📔" }
+        { name: "TensorFlow", level: 65, icon: "🧠", featured: true },
+        { name: "PyTorch", level: 50, icon: "🔥" },
+        { name: "scikit-learn", level: 80, icon: "🤖", featured: true },
+        { name: "Computer Vision", level: 65, icon: "👁️" },
+        { name: "NLP", level: 65, icon: "💬" },
+        { name: "Deep Learning", level: 70, icon: "🧮" },
+        { name: "Data Analysis", level: 75, icon: "📊" }
       ]
     },
     {
-      title: "Frameworks & Libraries",
+      title: "Web Frameworks",
       icon: Layers,
-      color: "from-green-400 to-teal-400",
+      color: "from-green-400 to-teal-400", 
       skills: [
-        { name: "Pandas", level: 92, icon: "🐼" },
-        { name: "NumPy", level: 90, icon: "🔢" },
-        { name: "Matplotlib", level: 88, icon: "📈" },
-        { name: "FastAPI", level: 80, icon: "⚡" },
-        { name: "Flask", level: 78, icon: "🌶️" }
+        { name: "FastAPI", level: 75, icon: "⚡", featured: true },
+        { name: "Flask", level: 80, icon: "🌶️", featured: true },
+        { name: "React", level: 65, icon: "⚛️" },
+        { name: "Tailwind CSS", level: 45, icon: "🎨" },
+        { name: "Express", level: 55, icon: "🚂" }
       ]
     },
     {
@@ -49,11 +49,12 @@ const Skills = () => {
       icon: Server,
       color: "from-orange-400 to-red-400",
       skills: [
-        { name: "OpenCV", level: 85, icon: "🎥" },
-        { name: "VS Code", level: 90, icon: "💻" },
-        { name: "Git", level: 85, icon: "🔄" },
-        { name: "Postman", level: 78, icon: "📮" },
-        { name: "Excel", level: 82, icon: "📊" }
+        { name: "VS Code", level: 90, icon: "💻", featured: true },
+        { name: "Git", level: 80, icon: "🔄", featured: true },
+        { name: "Jupyter", level: 90, icon: "📔" },
+        { name: "n8n", level: 85, icon: "⚡" ,featured: true},
+        { name: "Postman", level: 80, icon: "📮" },
+        { name: "Streamlit", level: 70, icon: "📊" }
       ]
     },
     {
@@ -61,21 +62,10 @@ const Skills = () => {
       icon: Database,
       color: "from-yellow-400 to-amber-500",
       skills: [
-        { name: "MySQL", level: 85, icon: "🗄️" },
-        { name: "PostgreSQL", level: 80, icon: "🐘" },
-        { name: "SQL Queries", level: 88, icon: "🔍" },
-        { name: "Database Design", level: 75, icon: "📐" }
-      ]
-    },
-    {
-      title: "Soft Skills",
-      icon: BookOpen,
-      color: "from-indigo-400 to-purple-500",
-      skills: [
-        { name: "Adaptability", level: 95, icon: "🌊" },
-        { name: "Time Management", level: 88, icon: "⏰" },
-        { name: "Team Collaboration", level: 92, icon: "👥" },
-        { name: "Problem Solving", level: 90, icon: "🧩" }
+        { name: "MySQL", level: 70, icon: "🗄️"},
+        { name: "PostgreSQL", level: 75, icon: "🐘", featured: true },
+        { name: "SQL Queries", level: 73, icon: "🔍", featured: true },
+        { name: "Database Design", level: 60, icon: "📐" }
       ]
     }
   ];
@@ -178,8 +168,9 @@ const Skills = () => {
                             >
                               {skill.icon}
                             </motion.span>
-                            <span className="text-gray-700 dark:text-gray-300 font-medium text-lg">
+                            <span className={`text-gray-700 dark:text-gray-300 font-medium text-lg ${skill.featured ? 'featured' : ''}`}>
                               {skill.name}
+                              {skill.featured && <span className="ml-1 text-yellow-500">★</span>}
                             </span>
                           </div>
                           <motion.span 
