@@ -22,7 +22,7 @@ const Projects = () => {
       category: "models",
       tech: ["Python", "OpenCV", "YOLOv8"],
       image: "/placeholder.svg", // Replace with actual image of animal detection
-      github: "https://github.com/Karthickraja018/Animal-Detection",
+      github: "https://github.com/Karthickraja018/ANIMAL-DETECTION-main",
       demo: null,
       gradient: "from-green-400 to-teal-400",
       stats: "95% accuracy"
@@ -58,7 +58,7 @@ const Projects = () => {
       category: "models",
       tech: ["Python", "Scikit-learn", "Pandas"],
       image: "/placeholder.svg", // Replace with actual image of prediction dashboard
-      github: "#",
+      github: "https://github.com/Karthickraja018/sem-result-predicition",
       demo: "#",
       gradient: "from-orange-400 to-red-400",
       stats: "85% accuracy"
@@ -77,12 +77,12 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: "Skin Disease Prediction",
-      description: "ML-powered web app for predicting skin diseases from images, with a React frontend for user interaction.",
+      title: "Skin Disease Detection",
+      description: "ML-powered web app for detecting skin diseases from images, with a React frontend for user interaction.",
       category: "full-stack",
       tech: ["Python", "TensorFlow", "React"],
       image: "/placeholder.svg", // Replace with actual image of skin disease app
-      github: "#",
+      github: "https://github.com/Karthickraja018/Skin-Disease-Detection",
       demo: "#",
       gradient: "from-pink-400 to-rose-400",
       stats: "90% accuracy"
