@@ -17,11 +17,11 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Animal Detection",
+      title: "Animal Detection", 
       description: "Real-time animal detection system using YOLOv8, with bounding box visualization and CSV logging for monitoring.",
       category: "models",
       tech: ["Python", "OpenCV", "YOLOv8"],
-      image: "/placeholder.svg", // Replace with actual image of animal detection
+      image: "/animaldetection.jpg", // Image path should start with / not public/
       github: "https://github.com/Karthickraja018/ANIMAL-DETECTION-main",
       demo: null,
       gradient: "from-green-400 to-teal-400",
@@ -33,7 +33,7 @@ const Projects = () => {
       description: "Gesture-controlled virtual mouse using hand tracking with MediaPipe for seamless cursor navigation.",
       category: "models",
       tech: ["Python", "MediaPipe", "OpenCV"],
-      image: "/placeholder.svg", // Replace with actual image of virtual mouse
+      image: "/vm.jpg", // Replace with actual image of virtual mouse
       github: "https://github.com/Karthickraja018/Virtual-Mouse",
       demo: null,
       gradient: "from-blue-400 to-cyan-400",
@@ -45,7 +45,7 @@ const Projects = () => {
       description: "Interactive chatbot for data analysis and visualization using Streamlit, with support for CSV processing and NLP.",
       category: "full-stack",
       tech: ["Python", "Streamlit", "Pandas", "Plotly"],
-      image: "/placeholder.svg", // Replace with actual image of chatbot UI
+      image: "/ask.jpg", // Replace with actual image of chatbot UI
       github: "https://github.com/Karthickraja018/AskUrDataz",
       demo: "https://askurdataz.streamlit.app/",
       gradient: "from-purple-400 to-pink-400",
@@ -219,13 +219,13 @@ const Projects = () => {
               >
                 {/* Project Image/Icon Section */}
                 <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
-                  <motion.div
-                    className="text-white text-6xl"
-                    whileHover={{ scale: 1.2, rotate: 10 }}
+                  <motion.img
+                    src={project.image}
+                    alt={`${project.title} project image`}
+                    className="w-full h-full object-cover"
+                    whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                  >
-                    🚀
-                  </motion.div>
+                  />
                   
                   {/* Hover overlay with GitHub and Demo links */}
                   <motion.div
