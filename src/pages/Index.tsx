@@ -3,6 +3,7 @@ import PageTransition from '../components/PageTransition';
 import { useTheme } from '../contexts/ThemeContext';
 import { Link } from 'react-router-dom';
 import { Award, Users, Zap, Globe, ArrowRight, Mail } from 'lucide-react';
+import ProfileCard from '../components/ProfileCard';
 
 const Index = () => {
   const { theme } = useTheme();
@@ -294,62 +295,12 @@ const Index = () => {
               </motion.div>
             </motion.div>
 
-            {/* Image Section */}
+            {/* Profile Card Section */}
             <motion.div 
               variants={itemVariants}
-              className="relative flex justify-center lg:justify-end perspective-1000"
+              className="relative flex justify-center lg:justify-end"
             >
-              {/* Background Shape */}
-              <motion.div 
-                className="absolute inset-0 bg-gradient-to-br from-blue-200 to-purple-200 dark:from-blue-800 dark:to-purple-800 rounded-3xl transform rotate-6 scale-110 opacity-20"
-                animate={{ rotate: [6, 8, 6] }}
-                transition={{ duration: 4, repeat: Infinity }}
-              />
-              
-              {/* Profile Image with 3D Effect */}
-              <motion.div 
-                className="relative z-10 w-80 h-96 rounded-3xl overflow-hidden shadow-2xl transform-gpu preserve-3d"
-                whileHover={{ 
-                  rotateY: 5,
-                  rotateX: -5,
-                  scale: 1.05,
-                  transition: {
-                    duration: 0.4,
-                    ease: "easeOut"
-                  }
-                }}
-                style={{
-                  transformStyle: "preserve-3d",
-                }}
-              >
-                {/* Shine Effect Overlay */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/30 to-white/0 opacity-0"
-                  whileHover={{ opacity: 0.5 }}
-                  transition={{ duration: 0.3 }}
-                />
-
-                <img
-                  src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=400&h=600&fit=crop&crop=face"
-                  alt="Karthick Raja"
-                  className="w-full h-full object-cover transform-gpu"
-                />
-                
-                {/* Floating Badge */}
-                <motion.div 
-                  className="absolute -top-4 -right-4 bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg border-4 border-blue-100 dark:border-blue-900 transform-gpu"
-                  animate={{ y: [-5, 5, -5] }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  style={{
-                    transform: "translateZ(20px)",
-                  }}
-                >
-                  <Zap className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </motion.div>
-
-                {/* Add depth shadow */}
-                <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.1)] rounded-3xl pointer-events-none" />
-              </motion.div>
+              <ProfileCard />
             </motion.div>
           </motion.div>
         </section>

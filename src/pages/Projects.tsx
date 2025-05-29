@@ -1,4 +1,3 @@
-
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ExternalLink, Github, Eye } from 'lucide-react';
@@ -23,8 +22,8 @@ const Projects = () => {
       category: "models",
       tech: ["Python", "OpenCV", "YOLOv8"],
       image: "/placeholder.svg", // Replace with actual image of animal detection
-      github: "#", // Replace with actual GitHub URL
-      demo: "#", // Replace with actual demo URL
+      github: "https://github.com/Karthickraja018/Animal-Detection",
+      demo: null,
       gradient: "from-green-400 to-teal-400",
       stats: "95% accuracy"
     },
@@ -35,8 +34,8 @@ const Projects = () => {
       category: "models",
       tech: ["Python", "MediaPipe", "OpenCV"],
       image: "/placeholder.svg", // Replace with actual image of virtual mouse
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Karthickraja018/Virtual-Mouse",
+      demo: null,
       gradient: "from-blue-400 to-cyan-400",
       stats: "Real-time tracking"
     },
@@ -47,8 +46,8 @@ const Projects = () => {
       category: "full-stack",
       tech: ["Python", "Streamlit", "Pandas", "Plotly"],
       image: "/placeholder.svg", // Replace with actual image of chatbot UI
-      github: "#",
-      demo: "#",
+      github: "https://github.com/Karthickraja018/AskUrDataz",
+      demo: "https://askurdataz.streamlit.app/",
       gradient: "from-purple-400 to-pink-400",
       stats: "100+ queries"
     },
@@ -232,29 +231,62 @@ const Projects = () => {
                   <motion.div
                     className="absolute inset-0 bg-black/20 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                     initial={{ opacity: 0 }}
+                    animate={{ opacity: 0 }}
                     whileHover={{ opacity: 1 }}
                   >
                     {project.github && (
-                      <motion.a
-                        href={project.github}
-                        className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                      <motion.button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.github, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="p-4 bg-white/20 backdrop-blur-sm rounded-full text-white border-2 border-white/30 hover:bg-white/40 hover:border-white/50 transition-all duration-200 cursor-pointer z-20"
+                        whileHover={{ 
+                          scale: 1.15,
+                          rotate: 5,
+                          backgroundColor: "rgba(255, 255, 255, 0.5)"
+                        }}
+                        whileTap={{ 
+                          scale: 0.9,
+                          rotate: -5
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 10 
+                        }}
                         aria-label={`View ${project.title} source code on GitHub`}
                       >
-                        <Github className="w-5 h-5" />
-                      </motion.a>
+                        <Github className="w-6 h-6" />
+                      </motion.button>
                     )}
                     {project.demo && (
-                      <motion.a
-                        href={project.demo}
-                        className="p-3 bg-white/20 backdrop-blur-sm rounded-full text-white hover:bg-white/30 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
+                      <motion.button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.demo, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="p-4 bg-white/20 backdrop-blur-sm rounded-full text-white border-2 border-white/30 hover:bg-white/40 hover:border-white/50 transition-all duration-200 cursor-pointer z-20"
+                        whileHover={{ 
+                          scale: 1.15,
+                          rotate: -5,
+                          backgroundColor: "rgba(255, 255, 255, 0.5)"
+                        }}
+                        whileTap={{ 
+                          scale: 0.9,
+                          rotate: 5
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 10 
+                        }}
                         aria-label={`View ${project.title} demo`}
                       >
-                        <ExternalLink className="w-5 h-5" />
-                      </motion.a>
+                        <ExternalLink className="w-6 h-6" />
+                      </motion.button>
                     )}
                   </motion.div>
 
@@ -301,28 +333,60 @@ const Projects = () => {
                   {/* Action Buttons */}
                   <div className="flex gap-3">
                     {project.github && (
-                      <motion.a
-                        href={project.github}
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white text-center rounded-xl hover:bg-gray-700 dark:hover:bg-gray-600 transition-colors text-sm font-medium"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                      <motion.button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.github, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gray-800 dark:bg-gray-700 text-white text-center rounded-xl text-sm font-medium hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-200 cursor-pointer z-10"
+                        whileHover={{ 
+                          scale: 1.02,
+                          y: -2,
+                          boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)"
+                        }}
+                        whileTap={{ 
+                          scale: 0.98,
+                          y: 0
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 10 
+                        }}
                         aria-label={`View ${project.title} source code`}
                       >
                         <Github className="w-4 h-4" />
                         Code
-                      </motion.a>
+                      </motion.button>
                     )}
                     {project.demo && (
-                      <motion.a
-                        href={project.demo}
-                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all text-sm font-medium"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                      <motion.button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          window.open(project.demo, '_blank', 'noopener,noreferrer');
+                        }}
+                        className="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center rounded-xl text-sm font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-200 cursor-pointer z-10"
+                        whileHover={{ 
+                          scale: 1.02,
+                          y: -2,
+                          boxShadow: "0 10px 25px rgba(59, 130, 246, 0.3)"
+                        }}
+                        whileTap={{ 
+                          scale: 0.98,
+                          y: 0
+                        }}
+                        transition={{ 
+                          type: "spring", 
+                          stiffness: 400, 
+                          damping: 10 
+                        }}
                         aria-label={`View ${project.title} demo`}
                       >
                         <Eye className="w-4 h-4" />
                         Demo
-                      </motion.a>
+                      </motion.button>
                     )}
                   </div>
                 </div>
