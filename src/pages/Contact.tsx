@@ -99,7 +99,7 @@ const Contact = () => {
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_email: 'karthickraja.nataraj@gmail.com'
+          to_email: 'e.karthickraja2004@gmail.com'
         },
         'GD_B-Ys2jsPdUbT1U'
       );
@@ -336,7 +336,7 @@ const Contact = () => {
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 <motion.a
-                  href="#"
+                  href="https://www.linkedin.com/in/karthick-raja-e-2004-aiml/"
                   whileHover={{ scale: 1.05 }}
                   className="flex items-center space-x-2 p-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
                 >
@@ -344,7 +344,7 @@ const Contact = () => {
                   <span>LinkedIn</span>
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://www.github.com/karthickraja018"
                   whileHover={{ scale: 1.05 }}
                   className="flex items-center space-x-2 p-3 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >
@@ -352,20 +352,20 @@ const Contact = () => {
                   <span>GitHub</span>
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://huggingface.co/Karthickraja89"
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-2 p-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                  className="flex items-center space-x-2 p-3 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition-colors"
                 >
-                  <span>📺</span>
-                  <span>YouTube</span>
+                  <span>🤗</span>
+                  <span>HuggingFace</span>
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="https://leetcode.com/u/karthick004/"
                   whileHover={{ scale: 1.05 }}
-                  className="flex items-center space-x-2 p-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                  className="flex items-center space-x-2 p-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-colors"
                 >
-                  <span>🏆</span>
-                  <span>Kaggle</span>
+                  <span>💻</span>
+                  <span>LeetCode</span>
                 </motion.a>
               </div>
             </div>

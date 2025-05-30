@@ -57,7 +57,7 @@ const Projects = () => {
       description: "Machine learning model to predict semester grades based on student performance data, using regression techniques.",
       category: "models",
       tech: ["Python", "Scikit-learn", "Pandas"],
-      image: "/placeholder.svg", // Replace with actual image of prediction dashboard
+      image: "/sem.jpg", // Replace with actual image of prediction dashboard
       github: "https://github.com/Karthickraja018/sem-result-predicition",
       demo: "#",
       gradient: "from-orange-400 to-red-400",
@@ -69,7 +69,7 @@ const Projects = () => {
       description: "Fine-tuned GPT-Neo model for conversational mental health support, providing empathetic responses.",
       category: "models",
       tech: ["Python", "Transformers", "PyTorch"],
-      image: "/placeholder.svg", // Replace with actual image of assistant interface
+      image: "/Mental.jpg", // Replace with actual image of assistant interface
       github: "#",
       demo: "#",
       gradient: "from-indigo-400 to-purple-400",
@@ -81,7 +81,7 @@ const Projects = () => {
       description: "ML-powered web app for detecting skin diseases from images, with a React frontend for user interaction.",
       category: "full-stack",
       tech: ["Python", "TensorFlow", "React"],
-      image: "/placeholder.svg", // Replace with actual image of skin disease app
+      image: "/skin.jpg", // Replace with actual image of skin disease app
       github: "https://github.com/Karthickraja018/Skin-Disease-Detection",
       demo: "#",
       gradient: "from-pink-400 to-rose-400",
@@ -89,11 +89,11 @@ const Projects = () => {
     },
     {
       id: 7,
-      title: "Project Task Scheduler",
+      title: "Project Task Manager",
       description: "Automated project management system using n8n that sends daily status reports to managers and task reminders to team members. Includes Google Forms integration for status updates, deadline notifications, and overdue alerts.",
       category: "automation", 
       tech: ["n8n", "Google Forms", "Gmail API", "Cron"],
-      image: "/placeholder.svg", // Replace with actual image of automation workflow
+      image: "/TaskMAnager.jpg", // Replace with actual image of automation workflow
       github: "#",
       demo: "#",
       gradient: "from-blue-600 to-teal-600",
@@ -105,7 +105,7 @@ const Projects = () => {
       description: "Automated email system using n8n that sends daily LeetCode problems and solutions for consistent practice and learning.",
       category: "automation", 
       tech: ["n8n", "Email", "LeetCode API"],
-      image: "/placeholder.svg", // Replace with actual image of email automation workflow
+      image: "/Leetbuddy.jpg", // Replace with actual image of email automation workflow
       github: "#",
       demo: "#",
       gradient: "from-yellow-400 to-orange-400",
@@ -218,11 +218,11 @@ const Projects = () => {
                 whileHover={{ y: -10, scale: 1.02 }}
               >
                 {/* Project Image/Icon Section */}
-                <div className={`relative h-48 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
+                <div className={`relative h-64 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
                   <motion.img
                     src={project.image}
                     alt={`${project.title} project image`}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     whileHover={{ scale: 1.1 }}
                     transition={{ type: "spring", stiffness: 300 }}
                   />

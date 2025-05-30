@@ -43,12 +43,7 @@ const Index = () => {
     }
   };
 
-  const achievements = [
-    { icon: Award, text: "Published Research Papers", metric: "5+", color: "from-yellow-400 to-orange-500" },
-    { icon: Users, text: "Fortune 500 Leadership", metric: "500+", color: "from-green-400 to-teal-500" },
-    { icon: Zap, text: "ML Systems Users", metric: "1M+", color: "from-blue-400 to-purple-500" },
-    { icon: Globe, text: "Conference Talks", metric: "10+", color: "from-pink-400 to-red-500" }
-  ];
+
 
   return (
     <PageTransition>
@@ -83,7 +78,7 @@ const Index = () => {
             {/* Minimal Hero Section */}
             <motion.div variants={itemVariants} className="mb-16 relative">
               <motion.div
-                className="absolute left-0 -top-20 text-2xl text-gray-600 dark:text-gray-400"
+                className="absolute left-0 -top-20 text-2xl text-gray-600 dark:text-gray-400 flex items-center gap-2"
                 style={{
                   fontWeight: '500',
                   transform: 'rotate(-5deg)',
@@ -95,10 +90,15 @@ const Index = () => {
                 }}
                 drag
                 dragConstraints={{
-                  left: -500,
-                  right: 500,
-                  top: -300,
-                  bottom: 300
+                  left: 0,
+                  right: window.innerWidth - 200,
+                  top: 0,
+                  bottom: window.innerHeight - 100
+                }}
+                dragElastic={0.8}
+                dragTransition={{ 
+                  bounceStiffness: 800,
+                  bounceDamping: 20
                 }}
                 whileHover={{ scale: 1.1, rotate: 5 }}
                 whileDrag={{ scale: 1.2 }}
@@ -109,6 +109,9 @@ const Index = () => {
                 }}
               >
                 Hello, I'm
+                <span className="text-sm text-gray-500 dark:text-gray-400 font-normal">
+                  (drag me!)
+                </span>
               </motion.div>
 
               <motion.h1 
@@ -245,26 +248,7 @@ const Index = () => {
               jokes to a minimum! 🤓✨
               </motion.p>
 
-              {/* Quick Stats */}
-              <motion.div 
-                className="grid grid-cols-2 gap-6 py-6"
-                variants={itemVariants}
-              >
-                {achievements.map((achievement, index) => {
-                  const Icon = achievement.icon;
-                  return (
-                    <motion.div 
-                      key={index}
-                      className="text-center"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <Icon className="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-2" />
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{achievement.metric}</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">{achievement.text}</p>
-                    </motion.div>
-                  );
-                })}
-              </motion.div>
+           
 
               {/* Action Buttons */}
               <motion.div 
