@@ -24,11 +24,11 @@ const Skills = () => {
       color: "from-blue-400 to-cyan-400", 
       skills: [
         { name: "TensorFlow", level: 65, icon: "🧠", featured: true },
-        { name: "PyTorch", level: 50, icon: "🔥" },
+        { name: "PyTorch", level: 45, icon: "🔥" },
         { name: "scikit-learn", level: 80, icon: "🤖", featured: true },
-        { name: "Computer Vision", level: 65, icon: "👁️" },
-        { name: "NLP", level: 65, icon: "💬" },
-        { name: "Deep Learning", level: 70, icon: "🧮" },
+        { name: "Computer Vision", level: 55, icon: "👁️" },
+        { name: "NLP", level: 50, icon: "💬" },
+        { name: "Deep Learning", level: 60, icon: "🧮" },
         { name: "Data Analysis", level: 75, icon: "📊" }
       ]
     },
@@ -65,7 +65,6 @@ const Skills = () => {
         { name: "MySQL", level: 70, icon: "🗄️"},
         { name: "PostgreSQL", level: 75, icon: "🐘", featured: true },
         { name: "SQL Queries", level: 73, icon: "🔍", featured: true },
-        { name: "Database Design", level: 60, icon: "📐" }
       ]
     }
   ];
@@ -91,7 +90,7 @@ const Skills = () => {
     },
     {
       title: "Generative AI",
-      description: "Skillthub (July-August 2024)",
+      description: "Skillible (July-August 2024)",
       icon: "🤖",
       color: "from-red-400 to-pink-500"
     }
@@ -222,7 +221,7 @@ const Skills = () => {
             className="text-3xl font-semibold text-gray-900 dark:text-white mb-8 text-center"
             whileHover={{ scale: 1.02 }}
           >
-            Certifications & Achievements
+            Certifications 
           </motion.h3>
           
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -257,49 +256,6 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Achievements */}
-          <motion.div 
-            className="mt-8 p-6 rounded-xl bg-white/5 dark:bg-black/5 backdrop-blur-sm border border-white/10 dark:border-white/5"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.2 }}
-          >
-            <h4 className="font-semibold text-gray-900 dark:text-white mb-4 text-xl text-center">Academic Achievements</h4>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div 
-                className="flex items-center gap-4 p-4 rounded-lg bg-white/10 dark:bg-black/10"
-                whileHover={{ scale: 1.03, x: 5 }}
-              >
-                <motion.span 
-                  className="text-4xl"
-                  animate={{ rotate: [0, 10, 0] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
-                >
-                  🏅
-                </motion.span>
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Department First</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">3rd semester of B.Tech</p>
-                </div>
-              </motion.div>
-              <motion.div 
-                className="flex items-center gap-4 p-4 rounded-lg bg-white/10 dark:bg-black/10"
-                whileHover={{ scale: 1.03, x: 5 }}
-              >
-                <motion.span 
-                  className="text-4xl"
-                  animate={{ rotate: [0, -10, 0] }}
-                  transition={{ repeat: Infinity, duration: 2, delay: 1 }}
-                >
-                  🎓
-                </motion.span>
-                <div>
-                  <h5 className="font-medium text-gray-900 dark:text-white">Top 5 Rank</h5>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">HSC Examination at school</p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
         </motion.div>
       </div>
     </PageTransition>

@@ -137,13 +137,31 @@ const Resume = () => {
                   </div>
                 </div>
               </div>
-
               {/* Projects */}
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                   Notable Projects
                 </h3>
                 <div className="space-y-3">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Mental Health AI Assistant (Python, GPT-Neo)
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Fine-tuned GPT-Neo model for mental health assistance and counseling.
+                      Trained on curated mental health conversations to provide empathetic and helpful responses.
+                    </p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 dark:text-white">
+                      Automated Task Management System (n8n)
+                    </h4>
+                    <p className="text-sm text-gray-700 dark:text-gray-300">
+                      Built an automation workflow using n8n that tracks team tasks and deadlines.
+                      Sends automated emails to team members for new tasks, deadline reminders, and overdue tasks with Google Form links for status updates.
+                      Generates and delivers comprehensive progress reports to team leaders.
+                    </p>
+                  </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 dark:text-white">
                       Data Visualization AI (Python, Streamlit)
@@ -185,7 +203,7 @@ const Resume = () => {
                       Programming Languages
                     </h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Python, C, Java
+                      Python, Java
                     </p>
                   </div>
                   <div>
@@ -209,7 +227,7 @@ const Resume = () => {
                       Frameworks & Libraries
                     </h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      Pandas, Numpy, Matplotlib, TensorFlow, FastAPI, Flask, OpenCV
+                      Pandas, Numpy, Matplotlib, TensorFlow, FastAPI, Flask, OpenCV, PyTorch, Scikit-learn
                     </p>
                   </div>
                   <div>
@@ -217,7 +235,7 @@ const Resume = () => {
                       Tools & Platforms
                     </h4>
                     <p className="text-sm text-gray-700 dark:text-gray-300">
-                      MS Excel, VS Code, Git, Postman, i8n
+                      MS Excel, VS Code, Git, Postman, n8n
                     </p>
                   </div>
                   <div>
@@ -250,8 +268,8 @@ const Resume = () => {
                   Achievements
                 </h3>
                 <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 text-sm space-y-1">
-                  <li>Secured Department First in the 3rd semester of B.Tech</li>
-                  <li>Ranked among the Top 5 in Higher Secondary Certificate (HSC) Examination at school</li>
+                  <li><span className="font-medium">Project Expo Participant</span> - Showcased innovative projects at  college-level exhibitions</li>
+                  <li><span className="font-medium">Event Coordinator</span> - Led and organized student project presentations and technical events</li>
                 </ul>
               </div>
             </div>
