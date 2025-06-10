@@ -47,7 +47,7 @@ const Projects = () => {
       tech: ["Python", "Streamlit", "Pandas", "Plotly"],
       image: "/ask.jpg", // Replace with actual image of chatbot UI
       github: "https://github.com/Karthickraja018/AskUrDataz",
-      demo: "https://askurdataz.streamlit.app/",
+      demo: "https://karthick-portfolio-1b19a.web.app/",
       gradient: "from-purple-400 to-pink-400",
       stats: "100+ queries"
     },
@@ -59,7 +59,7 @@ const Projects = () => {
       tech: ["Python", "Scikit-learn", "Pandas"],
       image: "/sem.jpg", // Replace with actual image of prediction dashboard
       github: "https://github.com/Karthickraja018/sem-result-predicition",
-      demo: "#",
+      demo: null,
       gradient: "from-orange-400 to-red-400",
       stats: "85% accuracy"
     },
@@ -70,8 +70,8 @@ const Projects = () => {
       category: "models",
       tech: ["Python", "Transformers", "PyTorch"],
       image: "/Mental.jpg", // Replace with actual image of assistant interface
-      github: "#",
-      demo: "#",
+      github: null,
+      demo: null,
       gradient: "from-indigo-400 to-purple-400",
       stats: "Context-aware"
     },
@@ -83,7 +83,7 @@ const Projects = () => {
       tech: ["Python", "TensorFlow", "React"],
       image: "/skin.jpg", // Replace with actual image of skin disease app
       github: "https://github.com/Karthickraja018/Skin-Disease-Detection",
-      demo: "#",
+      demo: null,
       gradient: "from-pink-400 to-rose-400",
       stats: "90% accuracy"
     },
@@ -94,8 +94,8 @@ const Projects = () => {
       category: "automation", 
       tech: ["n8n", "Google Forms", "Gmail API", "Cron"],
       image: "/TaskMAnager.jpg", // Replace with actual image of automation workflow
-      github: "#",
-      demo: "#",
+      github: null,
+      demo: null,
       gradient: "from-blue-600 to-teal-600",
       stats: "98% task tracking"
     },
@@ -106,8 +106,8 @@ const Projects = () => {
       category: "automation", 
       tech: ["n8n", "Email", "LeetCode API"],
       image: "/Leetbuddy.jpg", // Replace with actual image of email automation workflow
-      github: "#",
-      demo: "#",
+      github: null,
+      demo: null,
       gradient: "from-yellow-400 to-orange-400",
       stats: "Daily emails"
     }

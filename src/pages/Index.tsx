@@ -252,28 +252,54 @@ const Index = () => {
 
               {/* Action Buttons */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-8 justify-center items-center"
                 variants={itemVariants}
               >
                 <Link to="/projects">
                   <motion.button
-                    className="group flex items-center gap-3 px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-semibold transition-all duration-300"
-                    whileHover={{ scale: 1.05, x: 5 }}
+                    className="group relative px-12 py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-semibold text-xl overflow-hidden shadow-2xl"
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.5)"
+                    }}
                     whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
-                    View My Work
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+                    <span className="relative z-10 flex items-center gap-3">
+                      View My Work
+                      <motion.span
+                        animate={{ x: [0, 8, 0] }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="text-2xl"
+                      >
+                        →
+                      </motion.span>
+                    </span>
                   </motion.button>
                 </Link>
 
                 <Link to="/contact">
                   <motion.button
-                    className="group flex items-center gap-3 px-8 py-4 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-400 rounded-full font-semibold transition-all duration-300"
-                    whileHover={{ scale: 1.05 }}
+                    className="group relative px-12 py-5 border-2 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-full font-semibold text-xl overflow-hidden backdrop-blur-sm"
+                    whileHover={{ 
+                      scale: 1.05,
+                      borderColor: "#3b82f6",
+                      color: "#3b82f6",
+                      boxShadow: "0 25px 50px -12px rgba(59, 130, 246, 0.25)"
+                    }}
                     whileTap={{ scale: 0.95 }}
+                    transition={{ type: "spring", stiffness: 400 }}
                   >
-                    <Mail className="w-4 h-4" />
-                    Get In Touch
+                    <motion.div
+                      className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    />
+                    <span className="relative z-10 flex items-center gap-3">
+                      <Mail className="w-5 h-5" />
+                      Get In Touch
+                    </span>
                   </motion.button>
                 </Link>
               </motion.div>

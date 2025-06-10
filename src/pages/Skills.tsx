@@ -12,10 +12,10 @@ const Skills = () => {
       icon: Code,
       color: "from-purple-400 to-pink-400",
       skills: [
-        { name: "Python", level: 75, icon: "🐍", featured: true },
-        { name: "Java", level: 55, icon: "☕" },
-        { name: "HTML/CSS", level: 70, icon: "🌐" },
-        { name: "JavaScript", level: 65, icon: "📜", featured: true }
+        { name: "Python", icon: "🐍", featured: true },
+        { name: "Java", icon: "☕" },
+        { name: "HTML/CSS", icon: "🌐" },
+        { name: "JavaScript", icon: "📜", featured: true }
       ]
     },
     {
@@ -23,13 +23,13 @@ const Skills = () => {
       icon: Brain,
       color: "from-blue-400 to-cyan-400", 
       skills: [
-        { name: "TensorFlow", level: 65, icon: "🧠", featured: true },
-        { name: "PyTorch", level: 45, icon: "🔥" },
-        { name: "scikit-learn", level: 80, icon: "🤖", featured: true },
-        { name: "Computer Vision", level: 55, icon: "👁️" },
-        { name: "NLP", level: 50, icon: "💬" },
-        { name: "Deep Learning", level: 60, icon: "🧮" },
-        { name: "Data Analysis", level: 75, icon: "📊" }
+        { name: "TensorFlow", icon: "🧠", featured: true },
+        { name: "PyTorch", icon: "🔥" },
+        { name: "scikit-learn", icon: "🤖", featured: true },
+        { name: "Computer Vision", icon: "👁️" },
+        { name: "NLP", icon: "💬" },
+        { name: "Deep Learning", icon: "🧮" },
+        { name: "Data Analysis", icon: "📊" }
       ]
     },
     {
@@ -37,11 +37,11 @@ const Skills = () => {
       icon: Layers,
       color: "from-green-400 to-teal-400", 
       skills: [
-        { name: "FastAPI", level: 75, icon: "⚡", featured: true },
-        { name: "Flask", level: 80, icon: "🌶️", featured: true },
-        { name: "React", level: 65, icon: "⚛️" },
-        { name: "Tailwind CSS", level: 45, icon: "🎨" },
-        { name: "Express", level: 55, icon: "🚂" }
+        { name: "FastAPI", icon: "⚡", featured: true },
+        { name: "Flask", icon: "🌶️", featured: true },
+        { name: "React", icon: "⚛️" },
+        { name: "Tailwind CSS", icon: "🎨" },
+        { name: "Express", icon: "🚂" }
       ]
     },
     {
@@ -49,12 +49,12 @@ const Skills = () => {
       icon: Server,
       color: "from-orange-400 to-red-400",
       skills: [
-        { name: "VS Code", level: 90, icon: "💻", featured: true },
-        { name: "Git", level: 80, icon: "🔄", featured: true },
-        { name: "Jupyter", level: 90, icon: "📔" },
-        { name: "n8n", level: 85, icon: "⚡" ,featured: true},
-        { name: "Postman", level: 80, icon: "📮" },
-        { name: "Streamlit", level: 70, icon: "📊" }
+        { name: "VS Code", icon: "💻", featured: true },
+        { name: "Git", icon: "🔄", featured: true },
+        { name: "Jupyter", icon: "📔" },
+        { name: "n8n", icon: "⚡" ,featured: true},
+        { name: "Postman", icon: "📮" },
+        { name: "Streamlit", icon: "📊" }
       ]
     },
     {
@@ -62,9 +62,9 @@ const Skills = () => {
       icon: Database,
       color: "from-yellow-400 to-amber-500",
       skills: [
-        { name: "MySQL", level: 70, icon: "🗄️"},
-        { name: "PostgreSQL", level: 75, icon: "🐘", featured: true },
-        { name: "SQL Queries", level: 73, icon: "🔍", featured: true },
+        { name: "MySQL", icon: "🗄️"},
+        { name: "PostgreSQL", icon: "🐘", featured: true },
+        { name: "SQL Queries", icon: "🔍", featured: true },
       ]
     }
   ];
@@ -113,7 +113,7 @@ const Skills = () => {
             </span>
           </motion.h1>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency levels across different domains.
+            Showcasing the technical skills I've developed through hands-on project experience in machine learning, automation, and full-stack development.
           </p>
         </motion.div>
 
@@ -157,50 +157,19 @@ const Skills = () => {
                         transition={{ delay: categoryIndex * 0.1 + skillIndex * 0.05 }}
                         onMouseEnter={() => setHoveredSkill(skill.name)}
                         onMouseLeave={() => setHoveredSkill(null)}
+                        className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/5 dark:hover:bg-black/5 transition-colors duration-200"
                       >
-                        <div className="flex justify-between items-center mb-3">
-                          <div className="flex items-center gap-3">
-                            <motion.span 
-                              className="text-xl"
-                              whileHover={{ scale: 1.3, rotate: 10 }}
-                              transition={{ type: "spring", stiffness: 400 }}
-                            >
-                              {skill.icon}
-                            </motion.span>
-                            <span className={`text-gray-700 dark:text-gray-300 font-medium text-lg ${skill.featured ? 'featured' : ''}`}>
-                              {skill.name}
-                              {skill.featured && <span className="ml-1 text-yellow-500">★</span>}
-                            </span>
-                          </div>
-                          <motion.span 
-                            className="text-blue-600 dark:text-blue-400 font-bold text-lg"
-                            whileHover={{ scale: 1.1 }}
-                          >
-                            {skill.level}%
-                          </motion.span>
-                        </div>
-                        
-                        <div className="relative w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 overflow-hidden">
-                          <motion.div
-                            className={`h-full bg-gradient-to-r ${category.color} rounded-full relative`}
-                            initial={{ width: 0 }}
-                            animate={{ width: `${skill.level}%` }}
-                            transition={{ 
-                              delay: categoryIndex * 0.1 + skillIndex * 0.1,
-                              duration: 1.2,
-                              ease: "easeOut"
-                            }}
-                          >
-                            {hoveredSkill === skill.name && (
-                              <motion.div
-                                className="absolute inset-0 bg-white/20 rounded-full"
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                              />
-                            )}
-                          </motion.div>
-                        </div>
+                        <motion.span 
+                          className="text-xl"
+                          whileHover={{ scale: 1.3, rotate: 10 }}
+                          transition={{ type: "spring", stiffness: 400 }}
+                        >
+                          {skill.icon}
+                        </motion.span>
+                        <span className={`text-gray-700 dark:text-gray-300 font-medium text-lg ${skill.featured ? 'featured' : ''}`}>
+                          {skill.name}
+                          {skill.featured && <span className="ml-1 text-yellow-500">★</span>}
+                        </span>
                       </motion.div>
                     ))}
                   </div>
